@@ -27,7 +27,13 @@
                 switch (valasztas)
                 {
                     case "0":return; //kilépés
-                    case "1": Console.WriteLine("1");break;
+                    case "1":
+                        //minden név listázása
+                        Console.Clear();
+                        int sorszam = 0;
+                        foreach (string nev in list)
+                            Console.WriteLine($"{sorszam++}. { nev}")
+                        ;break;
                     case "2": Console.WriteLine("2"); break;
                     case "3": Console.WriteLine("3"); break;
                     case "4": Console.WriteLine("4"); break;
