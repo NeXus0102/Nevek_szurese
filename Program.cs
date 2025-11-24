@@ -5,13 +5,13 @@
         static void Main(string[] args)
         {
             List<string> list = new List<string>();
-            list.Add("Molnár Tamás");
-            list.Add("Kiss István József");
-            list.Add("nagy István Elemér");
-            list.Add("Farkas1 Aladár");
-            list.Add("pető@Ilona.hu");
+            list.Add("Molnar Tamas");
+            list.Add("Kiss Istvan Jozsef");
+            list.Add("nagy Istvan Elemer");
+            list.Add("Farkas1 Aladar");
+            list.Add("peto@Ilona.hu");
             list.Add("Pisti");
-            list.Add("12Elemér");
+            list.Add("12Elemer");
             list.Add("SzekeresKata");
 
             while (true)
@@ -34,7 +34,22 @@
                         foreach (string nev in list)
                             Console.WriteLine($"{sorszam++}. { nev}")
                         ;break;
-                    case "2": Console.WriteLine("2"); break;
+                    case "2": 
+                        //csak betűk
+                        Console.Clear();
+                        sorszam = 0;
+                        foreach (string nev in list)
+                        {
+                            bool jo = true;
+                            foreach (char betu in nev)
+                            {
+                                if(!Char.IsLetter(betu) && betu !=' ')
+                                    jo = false;
+                            }
+                            if(jo)
+                                Console.WriteLine($"{sorszam++}. {nev}");
+                        }
+                        break;
                     case "3": Console.WriteLine("3"); break;
                     case "4": Console.WriteLine("4"); break;
                     case "5": Console.WriteLine("5"); break;
