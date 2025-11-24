@@ -26,16 +26,16 @@
                 string valasztas = Console.ReadLine();
                 switch (valasztas)
                 {
-                    case "0":return; //kilépés
+                    case "0":return; //Kilépés
                     case "1":
-                        //minden név listázása
+                        //Minden név listázása
                         Console.Clear();
                         int sorszam = 0;
                         foreach (string nev in list)
                             Console.WriteLine($"{sorszam++}. { nev}")
                         ;break;
                     case "2": 
-                        //csak betűk
+                        //Csak betűk
                         Console.Clear();
                         sorszam = 0;
                         foreach (string nev in list)
@@ -50,7 +50,24 @@
                                 Console.WriteLine($"{sorszam++}. {nev}");
                         }
                         break;
-                    case "3": Console.WriteLine("3"); break;
+                    case "3":
+                        // Nagybetűvel kezdődő nevek
+                        Console.Clear();
+                        sorszam = 0;
+                        foreach (string nev in list)
+                        {
+                            bool jo = true;
+                            String[] kezdodo = nev.Split(" ");
+                            foreach (var kezdodik in kezdodo)
+                            {
+                                
+                                if (!Char.IsUpper(nev[0])) jo = false;
+                            }
+
+                            if (jo)
+                                Console.WriteLine($"{sorszam++}. {nev}");
+                        }
+                        break;
                     case "4": Console.WriteLine("4"); break;
                     case "5":
                         // Szűrés - Nagybetűvel kezdődik, a többi kicsi, és nincs benne se szám sem speciális jel
