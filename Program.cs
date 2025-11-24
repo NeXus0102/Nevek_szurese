@@ -68,7 +68,16 @@
                                 Console.WriteLine($"{sorszam++}. {nev}");
                         }
                         break;
-                    case "4": Console.WriteLine("4"); break;
+                    case "4": 
+                        //Rövid nevek
+                        Console.Clear();
+                        sorszam = 0;
+                        foreach (string nev in list)
+                        {
+                            if (nev.Length < 10)
+                                Console.WriteLine($"{sorszam++}. {nev}");
+                        }                        
+                        break;
                     case "5":
                         // Szűrés - Nagybetűvel kezdődik, a többi kicsi, és nincs benne se szám sem speciális jel
                         Console.Clear();
