@@ -52,7 +52,32 @@
                         break;
                     case "3": Console.WriteLine("3"); break;
                     case "4": Console.WriteLine("4"); break;
-                    case "5": Console.WriteLine("5"); break;
+                    case "5":
+                        // Szűrés - Nagybetűvel kezdődik, a többi kicsi, és nincs benne se szám sem speciális jel
+                        Console.Clear();
+                        sorszam = 0;
+                        foreach (string nev in list)
+                        {
+                            bool jo = true;
+                            foreach (char betu in nev)
+                            {
+                                if (!Char.IsLetter(betu) && betu != ' ')
+                                    jo = false;
+                            }
+                            String[] nevdarabok = nev.Split(" ");
+                            foreach (var nevdarab in nevdarabok)
+                            {
+                                //első nagybetű
+                                if (!Char.IsUpper(nev[0])) jo = false;
+                                //többi kicsi
+                                if (nevdarab.Substring(1)!= nevdarab.Substring(1).ToLower())
+                                    jo = false;
+                            }
+
+                            if (jo)
+                                Console.WriteLine($"{sorszam++}. {nev}");
+                        }
+                        break;
                     default: Console.WriteLine("Rossz Parancs!");break;
                 }
                 Console.ReadKey();
